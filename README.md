@@ -11,7 +11,7 @@ This project provides a utility to split a large CSV file (`pws.csv`) into small
 - Command-line interface for easy usage
 - Timestamped output files
 - Docker support for containerized execution
-- 
+
 ## Project Structure
 
 ```
@@ -29,6 +29,11 @@ csv-splitter
 ### Standard Installation
 
 1. Clone the repository:
+
+```sh
+git clone https://github.com/your-username/csv-splitter.git
+cd csv-splitter
+```
 
 ## Runing
 
