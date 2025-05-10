@@ -2,37 +2,45 @@
 
 A memory-efficient utility for splitting large CSV files into smaller chunks.
 
+This project provides a utility to split a large CSV file (`pws.csv`) into smaller CSV files. Each smaller file is saved in the `data` directory and is named using the format `yyyy-mm-dd--hh-mm-ss--##`, where `##` is a sequential number.
+
 ## Features
 
 - Split CSV files by number of rows
 - Memory-efficient processing using chunks
 - Command-line interface for easy usage
 - Timestamped output files
+- Docker support for containerized execution
+- 
+## Project Structure
+
+```
+csv-splitter
+├── src
+│   └── splitter.py      # Main logic for splitting the CSV file
+├── data/
+│   └── .gitkeep         # Keeps the data directory tracked by Git
+├── requirements.txt      # Python dependencies
+└── README.md             # Project documentation
+```
 
 ## Installation
 
+### Standard Installation
+
 1. Clone the repository:
-2. Install required dependencies:
 
-## Usage
+## Runing
 
-### Command Line Interface
+To build the docker image: 
 
-Arguments:
-- `-i`, `--input`: Input CSV file path (default: pws.csv)
-- `-o`, `--output_dir`: Output directory for split files (default: data)
-- `-s`, `--size`: Number of rows per output file (default: 100)
+```sh
+docker build -t csv-splitter .
+```
 
-### Example
+Then to run it, execute this
 
-Split a large CSV file into chunks of 500 rows each:
-
-### As a Module
-
-You can also use the splitter in your own Python scripts:
-
-```python
-from splitter import split_csv
-
-# Split a CSV file into chunks of 1000 rows
-split_csv("input.csv", "output_directory", 1000)
+```sh
+cd src
+docker run -it -v ${PWD}:/app csv-splitter
+```
